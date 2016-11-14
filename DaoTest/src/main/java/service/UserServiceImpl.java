@@ -7,11 +7,11 @@ import java.util.List;
 
 // слой сервисов приложения - это слой с бизнес-логикой
 // определенные алгоритмы в системе
-public class UsersService implements UserService {
+public class UserServiceImpl implements UserService {
 
     private UsersDao usersDao;
 
-    public UsersService(UsersDao usersDao) {
+    public UserServiceImpl(UsersDao usersDao) {
         this.usersDao = usersDao;
     }
 
@@ -25,5 +25,13 @@ public class UsersService implements UserService {
         }
 
         return false;
+    }
+
+    public void addUser(User user) {
+        usersDao.save(user);
+    }
+
+    public User getUser(int id) {
+        return usersDao.find(id);
     }
 }

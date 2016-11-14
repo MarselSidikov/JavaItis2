@@ -2,7 +2,7 @@ import dao.UsersDao;
 import dao.UsersDaoArrayListImpl;
 import model.User;
 import service.UserService;
-import service.UsersService;
+import service.UserServiceImpl;
 
 /**
  * Created by admin on 12.11.2016.
@@ -19,7 +19,7 @@ public class Program {
         usersDao.save(nastya);
         usersDao.save(ilya);
 
-        UserService userService = new UsersService(usersDao);
+        UserService userService = new UserServiceImpl(usersDao);
 
         if (userService.isRegistered("Marsel")) {
             System.out.println("Marsel is Registered");

@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class UsersDaoArrayListImplTest {
 
-    private final static List<User> TEST_DATA = getTestUsers();
+    public final static List<User> TEST_DATA = getTestUsers();
 
     private static List<User> getTestUsers() {
         User marsel = new User("Marsel", "marselLogin", "qwerty007");
@@ -19,7 +19,7 @@ public class UsersDaoArrayListImplTest {
         User ilya = new User("Ilya", "ilyaLogin", "qwerty009");
 
         return Lists.newArrayList(marsel, nastya, ilya);
-    }
+    } 
 
     private UsersDaoArrayListImpl testingUsersDao;
 
