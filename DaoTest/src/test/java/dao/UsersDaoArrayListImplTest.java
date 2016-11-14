@@ -19,7 +19,7 @@ public class UsersDaoArrayListImplTest {
         User ilya = new User("Ilya", "ilyaLogin", "qwerty009");
 
         return Lists.newArrayList(marsel, nastya, ilya);
-    } 
+    }
 
     private UsersDaoArrayListImpl testingUsersDao;
 

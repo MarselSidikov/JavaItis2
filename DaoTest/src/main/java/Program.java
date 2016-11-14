@@ -9,6 +9,7 @@ import service.UserServiceImpl;
  */
 public class Program {
     public static void main(String[] args) {
+        /*
         User marsel = new User("Marsel", "marselLogin", "qwerty007");
         User nastya = new User("Nastya", "nastyaLogin", "qwerty008");
         User ilya = new User("Ilya", "ilyaLogin", "qwerty009");
@@ -26,5 +27,6 @@ public class Program {
         } else {
             System.out.println("not registered");
         }
+        */
     }
 }
