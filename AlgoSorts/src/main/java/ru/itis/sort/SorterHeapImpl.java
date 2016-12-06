@@ -1,4 +1,6 @@
-package ru.itis;
+package ru.itis.sort;
+
+import ru.itis.sort.Sorter;
 
 public class SorterHeapImpl implements Sorter {
 

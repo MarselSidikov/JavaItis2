@@ -1,4 +1,7 @@
-package ru.itis;
+package ru.itis.sort;
+
+import ru.itis.LogUtils;
+import ru.itis.sort.Sorter;
 
 public class SorterMergeImpl implements Sorter {
 
