@@ -1,8 +1,6 @@
 package ru.itis;
 
-import ru.itis.tree.BinarySearchTree;
 import ru.itis.tree.RedBlackTree;
-import ru.itis.tree.Tree;
 
 public class Main {
 
@@ -16,6 +14,6 @@ public class Main {
             tree.insert(currentElement);
         }
 
-        tree.show();
+15        tree.show();
     }
 }

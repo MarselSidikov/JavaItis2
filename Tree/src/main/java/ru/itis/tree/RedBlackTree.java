@@ -1,7 +1,5 @@
 package ru.itis.tree;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 public class RedBlackTree {
 
     private enum Color {
@@ -19,6 +17,11 @@ public class RedBlackTree {
             this.value = value;
             this.color = Color.RED;
         }
+
+        Node(int value, Color color) {
+            this(value);
+            this.color = color;
+        }
     }
 
     private Node root;
@@ -29,32 +32,46 @@ public class RedBlackTree {
 
     private Node insertRecursive(Node currentRoot, int value) {
         if (currentRoot == null) {
-            currentRoot = new Node(value);
-        } else if (value <= currentRoot.value) {
-            currentRoot.left = insertRecursive(currentRoot.left, value);
-            currentRoot.left.parent = currentRoot;
-        } else {
-            currentRoot.right = insertRecursive(currentRoot.right, value);
-            currentRoot.right.parent = currentRoot;
+            return new Node(value, Color.BLACK);
         }
+        if (value <= currentRoot.value) {
+            if (currentRoot.left == null) {
+                Node node = new Node(value);
+                node.parent = currentRoot;
+                currentRoot.left = node;
+            } else {
+                currentRoot.left = insertRecursive(currentRoot.left, value);
+            }
+            fixTree(currentRoot.left);
+        } else {
+            if (currentRoot.right == null) {
+                Node node = new Node(value);
+                node.parent = currentRoot;
+                currentRoot.right = node;
+            } else {
+                currentRoot.right = insertRecursive(currentRoot.right, value);
+            }
+            fixTree(currentRoot.right);
+        }
+        return currentRoot;
+    }
 
+    private void fixTree(Node currentRoot) {
         Node uncle = getUncle(currentRoot);
         Node grandparent = getGrandparent(currentRoot);
         if (currentRoot.parent == null) {
             currentRoot.color = Color.BLACK;
         } else if (currentRoot.parent.color == Color.BLACK) {
-            return currentRoot;
+            return;
         } else if (uncle != null && uncle.color == Color.RED && currentRoot.parent.color == Color.RED){
             currentRoot.parent.color = Color.BLACK;
             uncle.color = Color.BLACK;
             grandparent.color = Color.RED;
-            insertRecursive(grandparent, value);
+            fixTree(grandparent);
         } else if (currentRoot == currentRoot.parent.right && currentRoot.parent == grandparent.left){
             rotateLeft(currentRoot.parent);
-            currentRoot = currentRoot.left;
         } else if (currentRoot == currentRoot.parent.left && currentRoot.parent == grandparent.right) {
             rotateRight(currentRoot.parent);
-            currentRoot = currentRoot.right;
         } else {
             currentRoot.parent.color = Color.BLACK;
             grandparent.color = Color.RED;
@@ -64,10 +81,7 @@ public class RedBlackTree {
                 rotateLeft(grandparent);
             }
         }
-
-        return currentRoot;
     }
-
     public void show() {
         showTreeRecursive(root, 0);
     }
@@ -98,7 +112,7 @@ public class RedBlackTree {
         }
 
         node.right = pivot.left;
-        if (node.left != null) {
+        if (pivot.left != null) {
             pivot.left.parent = node;
         }
 
@@ -118,7 +132,7 @@ public class RedBlackTree {
         }
 
         node.left = pivot.right;
-        if (node.right != null) {
+        if (pivot.right != null) {
             pivot.right.parent = node;
         }
 

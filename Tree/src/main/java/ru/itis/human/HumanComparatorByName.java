@@ -1,7 +1,5 @@
 package ru.itis.human;
 
-import ru.itis.human.Human;
-
 import java.util.Comparator;
 
 public class HumanComparatorByName implements Comparator<Human> {

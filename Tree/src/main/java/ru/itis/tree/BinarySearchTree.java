@@ -74,7 +74,6 @@ public class BinarySearchTree<K extends Comparable, V> implements Tree<K, V> {
         }
     }
 
-    @Override
     public V find(K key) {
         return findRecursive(root, key);
     }
@@ -89,12 +88,10 @@ public class BinarySearchTree<K extends Comparable, V> implements Tree<K, V> {
         }
     }
 
-    @Override
     public void showPrefixOrder() {
 
     }
 
-    @Override
     public void showPostfixOrder() {
 
     }
