@@ -1,4 +1,6 @@
-package ru.itis;
+package ru.itis.human;
+
+import ru.itis.human.Human;
 
 import java.util.Comparator;
 

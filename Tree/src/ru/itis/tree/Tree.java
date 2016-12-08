@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.tree;
 
 public interface Tree<K extends Comparable, V> {
     void insert(K key, V value);

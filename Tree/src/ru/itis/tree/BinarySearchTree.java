@@ -1,6 +1,4 @@
-package ru.itis;
-
-import java.util.Comparator;
+package ru.itis.tree;
 
 public class BinarySearchTree<K extends Comparable, V> implements Tree<K, V> {
     private class Node {
@@ -16,13 +14,9 @@ public class BinarySearchTree<K extends Comparable, V> implements Tree<K, V> {
     }
 
     private Node root;
-    private Comparator<K> comparator;
 
     public BinarySearchTree() {
         root = null;
-    }
-    public BinarySearchTree(Comparator<K> comparator) {
-        this.comparator = comparator;
     }
 
     public void insert(K key, V value) {
