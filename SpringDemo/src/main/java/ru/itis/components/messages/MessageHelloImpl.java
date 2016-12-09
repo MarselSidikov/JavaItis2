@@ -1,6 +1,5 @@
-package ru.itis.components;
+package ru.itis.components.messages;
 
-import ru.itis.Message;
 
 public class MessageHelloImpl  implements Message {
     public String getMessage() {

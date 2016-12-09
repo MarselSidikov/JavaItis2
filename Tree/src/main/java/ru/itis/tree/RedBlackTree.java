@@ -40,7 +40,7 @@ public class RedBlackTree {
                 node.parent = currentRoot;
                 currentRoot.left = node;
             } else {
-                currentRoot.left = insertRecursive(currentRoot.left, value);
+                insertRecursive(currentRoot.left, value);
             }
             fixTree(currentRoot.left);
         } else {
@@ -49,7 +49,7 @@ public class RedBlackTree {
                 node.parent = currentRoot;
                 currentRoot.right = node;
             } else {
-                currentRoot.right = insertRecursive(currentRoot.right, value);
+                insertRecursive(currentRoot.right, value);
             }
             fixTree(currentRoot.right);
         }

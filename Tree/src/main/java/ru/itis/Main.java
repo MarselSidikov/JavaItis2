@@ -14,6 +14,6 @@ public class Main {
             tree.insert(currentElement);
         }
 
-15        tree.show();
+        tree.show();
     }
 }
