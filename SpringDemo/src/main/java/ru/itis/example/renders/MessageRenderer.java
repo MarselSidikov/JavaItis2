@@ -1,4 +1,4 @@
-package ru.itis.components.renders;
+package ru.itis.example.renders;
 
 import java.io.PrintWriter;
 

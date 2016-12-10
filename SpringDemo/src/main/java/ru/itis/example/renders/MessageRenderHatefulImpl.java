@@ -1,7 +1,7 @@
-package ru.itis.components.renders;
+package ru.itis.example.renders;
 
 
-import ru.itis.components.messages.Message;
+import ru.itis.example.messages.Message;
 
 import java.io.PrintWriter;
 

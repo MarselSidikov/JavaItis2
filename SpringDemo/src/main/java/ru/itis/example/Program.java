@@ -1,14 +1,14 @@
-package ru.itis.components;
+package ru.itis.example;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.itis.components.messages.CustomMessage;
-import ru.itis.components.renders.MessageRenderer;
+import ru.itis.example.renders.MessageRenderer;
+import ru.itis.example.messages.CustomMessage;
 
 public class Program {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
-                "ru.itis.components\\application-context.xml"
+                "ru.itis.ru.itis.context\\application-context.xml"
         );
 
         MessageRenderer renderer = (MessageRenderer)context.getBean("render");

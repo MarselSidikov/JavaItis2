@@ -7,8 +7,28 @@
 
     <servlet>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>ru.itis.servlet.SimpleServlet</servlet-class>
+        <servlet-class>ru.itis.example.servlet.SimpleServlet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>MyUsersServletJdbc</servlet-name>
+        <servlet-class>ru.itis.spring.jdbc.servlet.UsersServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>MyUsersServletHibernate</servlet-name>
+        <servlet-class>ru.itis.spring.hibernate.servlet.UsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MyUsersServletHibernate</servlet-name>
+        <url-pattern>/users-hibernate</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MyUsersServletJdbc</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
@@ -16,6 +36,16 @@
     </servlet-mapping>
 
     <listener>
-        <listener-class>ru.itis.config.SpringApplicationContextListener</listener-class>
+        <listener-class>ru.itis.example.config.SpringApplicationContextListener</listener-class>
     </listener>
+
+    <listener>
+        <listener-class>ru.itis.spring.jdbc.config.SpringServletContextListenerForJdbcProject</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>ru.itis.spring.hibernate.config.SpringServletContextListenerForHibernateProject</listener-class>
+    </listener>
+
+
 </web-app>

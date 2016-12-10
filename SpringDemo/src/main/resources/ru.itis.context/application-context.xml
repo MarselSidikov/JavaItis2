@@ -5,13 +5,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-   <bean id="render" class="ru.itis.components.renders.MessageRenderLovelyImpl">
+   <bean id="render" class="ru.itis.example.renders.MessageRenderLovelyImpl">
        <constructor-arg ref="message"/>
    </bean>
 
-    <bean id="message" class="ru.itis.components.messages.MessageByeImpl"/>
+    <bean id="message" class="ru.itis.example.messages.MessageByeImpl"/>
 
-    <bean id="customMessage" class="ru.itis.components.messages.CustomMessage" scope="prototype">
+    <bean id="customMessage" class="ru.itis.example.messages.CustomMessage" scope="singleton">
         <property name="message" value="HELLO FROM CONTEXT"/>
     </bean>
 

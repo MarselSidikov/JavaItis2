@@ -1,4 +1,4 @@
-package ru.itis.components.messages;
+package ru.itis.example.messages;
 
 public class MessageByeImpl implements Message {
 
