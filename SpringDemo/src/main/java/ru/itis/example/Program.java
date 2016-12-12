@@ -5,6 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.itis.example.renders.MessageRenderer;
 import ru.itis.example.messages.CustomMessage;
 
+import java.util.*;
+
 public class Program {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
