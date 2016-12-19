@@ -33,7 +33,7 @@ public class RenderFactory {
 
             Constructor constructor = renderClass.getConstructor(Message.class);
 
-            Message message = MessageFactory.getInstance().getMessage();
+            Message message = MessageFactory.INSTANCE.getMessage();
 
             this.renderer = (MessageRenderer)constructor.newInstance(message);
 

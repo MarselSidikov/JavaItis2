@@ -2,27 +2,24 @@ package ru.itis.spring.hibernate.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-import ru.itis.spring.hibernate.dao.UsersDao;
-import ru.itis.spring.hibernate.dao.UsersDaoHibernateImpl;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ru.itis.spring.hibernate.models.Child;
-import ru.itis.spring.hibernate.service.UsersService;
-import ru.itis.spring.hibernate.service.UsersServiceImpl;
+
 
 import javax.sql.DataSource;
 
-public class ServletsConfigurationPrimitiveJavaConfig {
-
-    @Bean
-    public UsersService usersService() {
-        return new UsersServiceImpl(usersDaoHibernate());
-    }
-
-    @Bean
-    public UsersDao usersDaoHibernate() {
-        return new UsersDaoHibernateImpl(sessionFactory());
-    }
+@EnableWebMvc
+@Configuration
+@ComponentScan("ru.itis.spring.hibernate")
+public class SpringConfig {
 
     @Bean
     public SessionFactory sessionFactory() {
@@ -42,5 +39,13 @@ public class ServletsConfigurationPrimitiveJavaConfig {
         driverManagerDataSource.setUsername("postgres");
         driverManagerDataSource.setPassword("qwerty007");
         return driverManagerDataSource;
+    }
+
+    @Bean
+    public ViewResolver getViewResolver(){
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/jsp/");
+        resolver.setSuffix(".jsp");
+        return resolver;
     }
 }

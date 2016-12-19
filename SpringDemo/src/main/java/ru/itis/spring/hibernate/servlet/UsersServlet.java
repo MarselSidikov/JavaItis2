@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class UsersServlet extends HttpServlet {
+
     private UsersService usersService;
 
     public void init(ServletConfig config) {

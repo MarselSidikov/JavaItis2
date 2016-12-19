@@ -8,19 +8,15 @@ import java.util.Properties;
 
 // ПАТТЕРН - СИНГЛТОН - объект, который гарантированно
 // существует в единственном экзмепляре
-public class MessageFactory {
+public enum MessageFactory {
     // поле, которое хранит единственный экземпляр
-    private static MessageFactory instance;
+    INSTANCE;
 
     private Message message;
 
     private Properties properties;
 
-    static {
-        instance = new MessageFactory();
-    }
-
-    private MessageFactory() {
+    MessageFactory() {
         properties = new Properties();
         try {
             properties.load(new
@@ -44,7 +40,4 @@ public class MessageFactory {
         return message;
     }
 
-    public static MessageFactory getInstance() {
-        return instance;
-    }
 }
