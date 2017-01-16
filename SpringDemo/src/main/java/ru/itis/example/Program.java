@@ -9,13 +9,14 @@ import java.util.*;
 
 public class Program {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "ru.itis.ru.itis.context\\application-context.xml"
-        );
 
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "ru.itis.context\\application-context.xml"
+        );
+        /**
         MessageRenderer renderer = (MessageRenderer)context.getBean("render");
         renderer.render();
-
+        **/
         CustomMessage message = (CustomMessage)context.getBean("customMessage");
         System.out.println(message.getMessage());
         CustomMessage message1 = (CustomMessage)context.getBean("customMessage");

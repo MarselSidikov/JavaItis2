@@ -1,6 +1,7 @@
 package ru.itis.spring.hibernate.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.itis.spring.hibernate.dao.UsersDao;
 import ru.itis.spring.hibernate.models.User;
 

@@ -1,7 +1,6 @@
 package ru.itis.sort;
 
 import ru.itis.LogUtils;
-import ru.itis.sort.Sorter;
 
 public class SorterMergeImpl implements Sorter {
 
@@ -16,8 +15,9 @@ public class SorterMergeImpl implements Sorter {
         this.helpArray = new int[maxSize];
     }
 
+    // сортирует массив array[lower..higher]
     private void sort(int array[], int lower, int higher) {
-        LogUtils.log(array, "sort", lower, higher);
+         LogUtils.log(array, "sort", lower, higher);
 
         if (higher <= lower) {
             return;
@@ -28,7 +28,7 @@ public class SorterMergeImpl implements Sorter {
         LogUtils.indentUp();
 
         sort(array, lower, middle); // C(N/2)
-        sort(array, middle + 1, higher); // (C/2)
+        sort(array, middle + 1, higher); // C(N/2)
         merge(array, lower, middle, higher); // N
 
         LogUtils.indentDown();
@@ -36,8 +36,12 @@ public class SorterMergeImpl implements Sorter {
 
     }
 
+    // процедура выполненяет слияние массива array состоящего из
+    // двух упорядоченных подмассивов
+    // array[lower..middle] и array[middle+1..higher]
     private void merge(int array[], int lower, int middle, int higher) {
 
+        // копируем весь массив array[lower..higher]
         for (int currentIndex = lower; currentIndex <= higher; currentIndex++) {
             helpArray[currentIndex] = array[currentIndex];
         }
@@ -62,6 +66,6 @@ public class SorterMergeImpl implements Sorter {
             }
         }
 
-        LogUtils.log(array, "merge", lower, higher);
+         LogUtils.log(array, "merge", lower, higher);
     }
 }

@@ -1,7 +1,7 @@
 package ru.itis;
 
 public class LogUtils {
-    static void log(int array[], String message, int lower, int higher) {
+    public static void log(int array[], String message, int lower, int higher) {
 
         int i = 0;
 
@@ -40,11 +40,11 @@ public class LogUtils {
         indent = 0;
     }
 
-    static void indentUp() {
+    public static void indentUp() {
         indent++;
     }
 
-    static void indentDown() {
+    public static void indentDown() {
         indent--;
     }
 

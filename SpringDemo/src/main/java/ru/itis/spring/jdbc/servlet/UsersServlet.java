@@ -31,4 +31,12 @@ public class UsersServlet extends HttpServlet {
             throw new IllegalArgumentException(e);
         }
     }
+
+    public void doPut(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(request.getParameter("name"));
+    }
+
+    public void doDelete(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(request.getAttribute("user-id") + " " + request.getAttribute("auto-id"));
+    }
 }
